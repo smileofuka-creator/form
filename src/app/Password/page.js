@@ -1,19 +1,21 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import Name from "./Components/Name";
-import Link from "next/link";
+
+import Check from "./Check";
 
 export default function Home() {
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    username: "",
+    email: "",
+    phone: "",
+    password: "",
+    confirmPassword: "",
   });
   const [errors, setErrors] = useState({
-    firstName: "",
-    lastName: "",
-    username: "",
+    email: "",
+    phone: "",
+    password: "",
+    confirmPassword: "",
   });
 
   return (
@@ -34,17 +36,18 @@ export default function Home() {
             </p>
           </div>
           <div className="flex flex-col gap-2">
-            <Name title="First name" />
-            <Name title="Last name" />
-            <Name title="Username" />
+            <Check title="Email" />
+            <Check title="Phone number" />
+            <Check title="Password" />
+            <Check title="Confirm password" />
           </div>
         </div>
         <div className="mt-auto">
-          <link href="/Password">
-            <button className="w-full bg-[#202020] text-white py-4 rounded-[8px] font-medium hover:bg-black transition-colors">
-              Continue 1/3
-            </button>
-          </link>
+          {/* <link href="/"> */}
+          <button className="w-full bg-[#202020] text-white py-4 rounded-[8px] font-medium hover:bg-black transition-colors">
+            Continue 2/3
+          </button>
+          {/* </link> */}
         </div>
       </div>
     </div>

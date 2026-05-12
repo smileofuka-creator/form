@@ -1,6 +1,4 @@
-// function Name(props)
-
-export default function Name({ title, value, onChange, error }) {
+export default function Check({ title, value, onChange, error }) {
   return (
     <div className="flex flex-col gap-1">
       <label className="text-black">
