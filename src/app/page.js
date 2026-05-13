@@ -1,15 +1,23 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import Name from "./components/Input";
-import Link from "next/link";
+import StepOne from "./components/StepOne";
+import StepTwo from "./components/StepTwo";
+import StepThree from "./components/StepThree";
 
 export default function Home() {
-  const [currentStep, setCurrentStep] = useState({
-    firstName: "",
-    lastName: "",
-    username: "",
-  });
+  const [currentStep, setCurrentStep] = useState(0);
+  const StepComponent = [StepOne, StepTwo, StepThree][currentStep];
+  const handleOnClick = () => setCurrentStep(currentStep + 1);
+
+  // const totalSteps = 3;
+  const handleNext = () => {
+    if (currentStep < 2) setCurrentStep(currentStep + 1);
+  };
+
+  const handleBack = () => {
+    if (currentStep > 0) setCurrentStep(currentStep - 1);
+  };
 
   return (
     <div className="flex min-h-screen w-full border  bg-[#F4F4F4] items-center justify-center">
@@ -29,17 +37,39 @@ export default function Home() {
             </p>
           </div>
           <div className="flex flex-col gap-2">
-            <Name title="First name" />
-            <Name title="Last name" />
-            <Name title="Username" />
+            <StepComponent />
           </div>
         </div>
+
+        <div className="mt-auto flex gap-2">
+          {currentStep > 0 && (
+            <button
+              onClick={handleBack}
+              className="w-1/3 border border-[#202020] text-[#202020] py-4 rounded-[8px] font-medium hover:bg-[#F4F4F4] transition-colors"
+            >
+              ← Back
+            </button>
+          )}
+
+          <button
+            onClick={handleNext}
+            className="flex-1 bg-[#202020] text-white py-4 rounded-[8px] font-medium hover:bg-black transition-colors flex items-center justify-center gap-2"
+          >
+            Continue {currentStep + 1}/{3}
+            <Image src="/Vector.png" width={7.5} height={12} alt="arrow" />
+          </button>
+        </div>
+
+        {/* 
         <div className="mt-auto ">
-          <button className="w-full bg-[#202020] text-white py-4 rounded-[8px] font-medium hover:bg-black transition-colors">
+          <button
+            onClick={handleOnClick}
+            className="w-full bg-[#202020] text-white py-4 rounded-[8px] font-medium hover:bg-black transition-colors"
+          >
             Continue <span>1</span>/3
             <Image src="/Vector.png" width={7.5} height={12} />
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
