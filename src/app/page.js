@@ -1,16 +1,11 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import Name from "./Components/Name";
+import Name from "./components/Input";
 import Link from "next/link";
 
 export default function Home() {
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    username: "",
-  });
-  const [errors, setErrors] = useState({
+  const [currentStep, setCurrentStep] = useState({
     firstName: "",
     lastName: "",
     username: "",
@@ -39,12 +34,11 @@ export default function Home() {
             <Name title="Username" />
           </div>
         </div>
-        <div className="mt-auto">
-          <link href="/Password">
-            <button className="w-full bg-[#202020] text-white py-4 rounded-[8px] font-medium hover:bg-black transition-colors">
-              Continue 1/3
-            </button>
-          </link>
+        <div className="mt-auto ">
+          <button className="w-full bg-[#202020] text-white py-4 rounded-[8px] font-medium hover:bg-black transition-colors">
+            Continue <span>1</span>/3
+            <Image src="/Vector.png" width={7.5} height={12} />
+          </button>
         </div>
       </div>
     </div>
