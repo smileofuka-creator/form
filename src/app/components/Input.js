@@ -6,8 +6,12 @@ export default function stepOne({
   accept,
   value,
   onChange,
-  error,
+  handleInputValue,
 }) {
+  const handleOnchange = (event) => {
+    handleInputValue(event.target.value, title);
+    // console.log(event.taget.value);
+  };
   return (
     <div className="flex flex-col gap-1">
       <label className="text-black">
@@ -17,13 +21,10 @@ export default function stepOne({
         type={type}
         accept={accept}
         value={value}
-        onChange={(e) => onChange(e.target.value)}
+        onChange={handleOnchange}
         placeholder={`${title} write...`}
-        className={`w-full p-3 border rounded-[8px] outline-none transition-all text-black ${
-          error ? "border-red-500" : "border-[#E1E1E1] focus:border-black"
-        }`}
+        className="w-full p-3 border rounded-[8px] outline-none transition-all text-black "
       />
-      {error && <p className="text-red-500 text-xs mt-1">{error}</p>}
     </div>
   );
 }

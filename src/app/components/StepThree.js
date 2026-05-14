@@ -1,11 +1,20 @@
 // function Name(props)
 import Input from "./Input";
 
-const StepThree = () => {
+const StepThree = (props) => {
   return (
     <>
-      <Input title="date of birth" type="date" />
-      <Input title="Profile image" type="file" accept="image/*" />
+      <Input
+        title="date of birth"
+        type="date"
+        handleInputValue={props.handleInputValue}
+      />
+      <Input
+        title="Profile image"
+        type="file"
+        accept="image/*"
+        handleInputValue={props.handleInputValue}
+      />
     </>
   );
 };

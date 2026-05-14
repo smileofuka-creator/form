@@ -1,13 +1,29 @@
 // function Name(props)
 import Input from "./Input";
 
-const StepTwo = () => {
+const StepTwo = (props) => {
   return (
     <>
-      <Input title="Email" type="email" />
-      <Input title="Phone number" type="tel" />
-      <Input title="Password" type="password" />
-      <Input title="Confirm password" type="password" />
+      <Input
+        title="Email"
+        type="email"
+        handleInputValue={props.handleInputValue}
+      />
+      <Input
+        title="Phone number"
+        type="tel"
+        handleInputValue={props.handleInputValue}
+      />
+      <Input
+        title="Password"
+        type="password"
+        handleInputValue={props.handleInputValue}
+      />
+      <Input
+        title="Confirm password"
+        type="password"
+        handleInputValue={props.handleInputValue}
+      />
     </>
   );
 };
