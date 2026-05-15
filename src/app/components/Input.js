@@ -5,8 +5,9 @@ export default function stepOne({
   type,
   accept,
   value,
-  onChange,
+  message,
   handleInputValue,
+  error,
 }) {
   const handleOnchange = (event) => {
     handleInputValue(event.target.value, title);
@@ -18,6 +19,7 @@ export default function stepOne({
         {title} <span className="text-red-500">*</span>
       </label>
       <input
+        style={error === true ? { border: "1px solid #E14942" } : null}
         type={type}
         accept={accept}
         value={value}
@@ -25,6 +27,8 @@ export default function stepOne({
         placeholder={`${title} write...`}
         className="w-full p-3 border rounded-[8px] outline-none transition-all text-black "
       />
+
+      {error && <p className="text-red-500">{message}</p>}
     </div>
   );
 }

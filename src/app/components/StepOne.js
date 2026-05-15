@@ -4,9 +4,24 @@ import Input from "./Input";
 const StepOne = (props) => {
   return (
     <>
-      <Input title="First name" handleInputValue={props.handleInputValue} />
-      <Input title="Last name" handleInputValue={props.handleInputValue} />
-      <Input title="Username" handleInputValue={props.handleInputValue} />
+      <Input
+        title="firstname"
+        handleInputValue={props.handleInputValue}
+        // error={true}
+        // message={"First name cannot contain special characters or numbers."}
+      />
+      <Input
+        title="lastname"
+        handleInputValue={props.handleInputValue}
+        // error={true}
+        // message={"Last name cannot contain special characters or numbers."}
+      />
+      <Input
+        title="username"
+        handleInputValue={props.handleInputValue}
+        // error={true}
+        // message={"This username is already taken. Please choose another one."}
+      />
     </>
   );
 };

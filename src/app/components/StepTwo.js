@@ -5,24 +5,32 @@ const StepTwo = (props) => {
   return (
     <>
       <Input
-        title="Email"
+        title="email"
         type="email"
         handleInputValue={props.handleInputValue}
+        error={true}
+        message={"Please provide a valid email address."}
       />
       <Input
-        title="Phone number"
+        title="phoneNumber"
         type="tel"
         handleInputValue={props.handleInputValue}
+        error={true}
+        message={"Please enter a valid phone number."}
       />
       <Input
-        title="Password"
+        title="password"
         type="password"
         handleInputValue={props.handleInputValue}
+        error={true}
+        message={"Password must include letters and numbers."}
       />
       <Input
-        title="Confirm password"
+        title="confirmPassword"
         type="password"
         handleInputValue={props.handleInputValue}
+        error={true}
+        message={"Passwords do not match. Please try again."}
       />
     </>
   );
